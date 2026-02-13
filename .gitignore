@@ -226,9 +226,3 @@ __pycache__/
 *.pyc
 .venv/
 
-# duckdb
-*.wal
-*.duckdb
-
-# sqlite
-*.db
