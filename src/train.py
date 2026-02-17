@@ -2,32 +2,32 @@ import torch
 import torch.nn as nn
 
 
-def train_one_epoch(model, loader, optimer, criterion, device):
+def train_one_epoch(model, loader, optimizer, criterion, device):
     model.train()
     total = 0
     correct = 0
     loss_sum = 0.0
 
-    form x, y in loader:
-    x, y = x.to(device), y.to(device)
+    for x, y in loader:
+        x, y = x.to(device), y.to(device)
 
-    logits = model(x)
-    loss = criterion(logits, y)
+        logits = model(x)
+        loss = criterion(logits, y)
 
-    optimizer.zero.grad()
-    loss.backward()
-    optimizer.step()
+        optimizer.zero_grad()
+        loss.backward()
+        optimizer.step()
 
-    loss_sum += loss.item() * x.size(0)
-    preds = logits.argmax(dim=1)
-    correct += (preds == y).sum().item()
-    total += x.size(0)
+        loss_sum += loss.item() * x.size(0)
+        preds = logits.argmax(dim=1)
+        correct += (preds == y).sum().item()
+        total += x.size(0)
 
     return {"loss": loss_sum / total, "acc": correct /total}
 
-@torch.no.grad()
-def eva_loop(model,  criterion, device):
-    model.eva()
+@torch.no_grad()
+def eval_loop(model, loader, criterion, device):
+    model.eval()
     total = 0
     correct = 0
     loss_sum = 0.0
@@ -39,19 +39,19 @@ def eva_loop(model,  criterion, device):
 
         loss_sum += loss.item() * x.size(0)
         preds = logits.argmax(dim=1)
-        correct +=(preds == y).sum.item()
+        correct +=(preds == y).sum().item()
         total += x.size(0)
 
         return {"loss": loss_sum /total, "acc": correct / total}
     
-    def fit(model, train_loader, test_loader, epochs, lr, device):
+def fit(model, train_loader, test_loader, epochs, lr, device):
         criterion = nn.CrossEntropyLoss()
         optimizer = torch.optim.Adam(model.parameters(), lr=lr)
 
         history = []
         for epoch in range(1, epochs +1):
             train_metrics = train_one_epoch(model, train_loader, optimizer, criterion, device)
-            test_metrics = eva_loop(model, test_loader, criterion, device)
+            test_metrics = eval_loop(model, test_loader, criterion, device)
 
             row = {
                 "epoch": epoch,
@@ -63,10 +63,11 @@ def eva_loop(model,  criterion, device):
             history.append(row)
 
             print(
-                f"Epoch {epoch:02d} |"
-                f"Train loss {row['train_loss']:.4f} acc{row['train_acc']:.3f} |"
-                f"test loss {row['test_loss']:.4f} acc{row['test_acc']:.3f}"
+                f"Epoch {epoch:02d} | "
+                f"Train loss {row['train_loss']:.4f} acc {row['train_acc']:.3f} | "
+                f"test loss {row['test_loss']:.4f} acc {row['test_acc']:.3f}"
             )
         return history
 
 
+ 

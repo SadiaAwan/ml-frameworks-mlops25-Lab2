@@ -1,0 +1,14 @@
+seed: 42
+
+data:
+  dir: data/raw
+  num_workers: 2
+
+train:
+  epochs: 5
+  batch_size: 128
+  lr: 0.001
+
+run:
+  name: exp1_baseline
+  out_dir: runs

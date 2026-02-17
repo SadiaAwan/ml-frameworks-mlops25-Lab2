@@ -2,8 +2,8 @@ import torch
 import torch.nn as nn
 
 class SimpleCNN(nn.Module):
-    def init(self, num_classes: int = 10):
-        super().init()
+    def __init__(self, num_classes: int = 10):
+        super().__init__()
         self.features = nn.Sequential(
             nn.Conv2d(3, 32, kernel_size=3, padding=1),
             nn.ReLU(),
