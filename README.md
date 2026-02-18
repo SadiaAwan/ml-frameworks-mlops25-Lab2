@@ -144,7 +144,7 @@ Three experiments were conducted using different hyperparameters.
 | Experiment     | Epochs | Batch Size | Learning Rate | Final Test Accuracy     |
 | -------------- | ------ | ---------- | ------------- | ----------------------- |
 | exp1_baseline  | 5      | 128        | 0.001         | 0.742                   |
-| exp2_low_LR    | 5      | 128        | 0.0001        | (fill with your result) |
+| exp2_low_LR    | 10     | 128        | 0.0001        | (fill with your result) |
 | exp3_Big_Batch | 5      | 256        | 0.001         | (fill with your result) |
 
 
