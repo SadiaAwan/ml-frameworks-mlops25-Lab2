@@ -308,7 +308,7 @@ More epochs
 
 
 
-My way of looking at whats important from this lab conclussion is:
+### My way of looking at whats important from this lab conclussion is:
 
 
 
