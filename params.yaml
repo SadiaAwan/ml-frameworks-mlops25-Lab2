@@ -6,8 +6,8 @@ data:
 
 train:
   epochs: 10
-  batch_size: 256
-  lr: 0.001
+  batch_size: 128
+  lr: 0.005
 
 run:
   name: exp3_Big_Batch
