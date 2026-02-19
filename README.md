@@ -27,6 +27,7 @@ The focus is that the entire pipeline runs from:
 
 Project Structure:
 
+```
 
 ML-FRAMEWORKS-MLOPS25_LAB2/
 │
@@ -72,7 +73,7 @@ ML-FRAMEWORKS-MLOPS25_LAB2/
 ├── .python-version                # Python version specification
 └── README.md                      # Project documentation
 
-
+```
 
 
 Pipeline Architecture:
