@@ -5,10 +5,10 @@ data:
   num_workers: 2
 
 train:
-  epochs: 5
-  batch_size: 128
+  epochs: 10
+  batch_size: 256
   lr: 0.001
 
 run:
-  name: exp1_baseline
+  name: exp3_Big_Batch
   out_dir: runs
