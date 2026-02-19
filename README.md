@@ -1,8 +1,8 @@
-This lab code assignment - PyTorch Pipelines & Model training - CIFAR -10
+# This lab code assignment - PyTorch Pipelines & Model training - CIFAR -10
 
+## CIFAR 10 IMAGE CLASSFICATION
 
-
-Project Overview: 
+### Project Overview: 
 
 
 This project implements a complete Deep Learning pipeline in PyTorch with:
@@ -25,7 +25,7 @@ The focus is that the entire pipeline runs from:
 
 
 
-Project Structure:
+### Project Structure:
 
 ```
 
@@ -76,10 +76,10 @@ ML-FRAMEWORKS-MLOPS25_LAB2/
 ```
 
 
-Pipeline Architecture:
+### Pipeline Architecture:
 
 
-Configuration
+# Configuration
 
 All hyperparameters are controlled through params.yaml and loaded using:
 
@@ -89,7 +89,7 @@ This ensures experiments are reproducible and centrally configured.
 
 
 
-Dataset Handling:
+### Dataset Handling:
 
 
 - CIFAR-10 is downloaded automatically if missing
@@ -100,7 +100,7 @@ Implemented in dataset.py
 
 
 
-Model:
+### Model:
 
 
 A simple convolutional neural network:
@@ -115,7 +115,7 @@ Implemented in model.py
 
 
 
-Training Loop:
+### Training Loop:
 
 
 Training includes:
@@ -123,7 +123,7 @@ Training includes:
 -  eval_loop
 -  fit() wrapper for full training
 
-Metrics logged per epoch:
+ Metrics logged per epoch:
 - train_loss
 - train_acc
 - test_loss
@@ -135,7 +135,7 @@ Utility functions for reproducibility and device selection are in utils.py
 
 
 
-Reproducibility:
+### Reproducibility:
 
 
 Reproducibility features:
@@ -150,7 +150,7 @@ Each experiment saves results to:
 
 
 
-DVC Dataset Tracking:
+### DVC Dataset Tracking:
 
 
 The dataset directory is tracked with DVC.
@@ -164,7 +164,7 @@ To add dataset:
 
 
 
-Experiments:
+### Experiments:
 
 
 Three experiments were conducted using different hyperparameters.
@@ -182,7 +182,7 @@ You can modify this table with the exact results from your other runs.
 
 
 
-How to Run:
+### How to Run:
 
 
 - Install dependencies
@@ -201,26 +201,23 @@ run:
 
 
 
-Experiment Comparison & Analysis
+### Experiment Comparison & Analysis
 
 
-Experimental Setup:
+# Experimental Setup:
 
 All experiments were trained on CIFAR-10 using the same:
 
 - Model architecture (SimpleCNN)
-
 - Data augmentation strategy
-
 - Optimizer (Adam)
-
 - Number of epochs (5)
 
 Only selected hyperparameters were modified to study their effect on performance.
 
 
 
-Results Summary:
+### Results Summary:
 
 
 | Experiment     | Batch Size | Learning Rate | Final Train Acc | Final Test Acc |
@@ -234,10 +231,10 @@ Baseline results are taken from the last epoch of metrics.json.
 
 
 
-Analysis:
+### Analysis:
 
 
-1. Effect of Learning Rate
+# 1. Effect of Learning Rate
 
 Reducing the learning rate (exp2_low_LR) typically:
 - Slows down convergence
@@ -251,7 +248,7 @@ Learning rate strongly affects training speed more than final capacity of the mo
 
 
 
-2. Effect of Batch Size
+# 2. Effect of Batch Size
 
 Increasing batch size (exp3_Big_Batch):
 
@@ -266,7 +263,7 @@ Larger batches often train faster per epoch but may reduce generalization slight
 
 
 
-3. Overfitting Observation
+# 3. Overfitting Observation
 
 Compare:
 
@@ -283,7 +280,7 @@ Since test accuracy is close to train accuracy, the model does not show severe o
 
 
 
-4. Convergence Behavior
+# 4. Convergence Behavior
 
 From the baseline metrics:
 - Loss consistently decreases
@@ -296,7 +293,7 @@ This indicates:
 
 
 
-Overall Conclusion:
+### Overall Conclusion:
 
 From these experiments we can conclude:
 - Learning rate is the most sensitive hyperparameter for convergence speed.
